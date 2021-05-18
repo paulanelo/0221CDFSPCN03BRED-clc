@@ -1,11 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+  <body class="container is-fullhd">
+    <%- include('partials/header.ejs', { user: user }) %>
+    <!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="index.html"> 🔆 </a>
+
+        <a
+          role="button"
+          class="navbar-burger"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navbarBasicExample"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a href="index.html" class="navbar-item"> Home </a>
+        </div>
+
+        <div class="navbar-end"></div>
+      </div>
+    </nav> -->
+    <main>
+      <section class="hero is-medium is-link">
+        <div class="hero-body">
+          <p class="title">Cake Ipsum</p>
+          <p class="subtitle">
+            Cupcake Ipsum - Sugar-coated Lorem Ipsum Generator
+          </p>
+        </div>
+      </section>
+      <%- include('partials/card.ejs', { item: { title:"Paula", content: "Olá" }
+      }) %>
+      <div class="column">
+        <div class="card">
+          <div class="card-content">
+            <div class="media">
+              <div class="media-content">
+                <p class="title is-4">Paula</p>
+              </div>
+            </div>
+
+            <div class="content">Olá</div>
+          </div>
+        </div>
+      </div>
+    </main>
   </body>
 </html>

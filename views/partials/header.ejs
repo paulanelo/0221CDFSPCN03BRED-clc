@@ -1,0 +1,53 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="index.html">
+            🔆
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+            data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+            <a href="index.html" class="navbar-item">
+                Home
+            </a>
+            <% if(user) { %>
+            <a class="navbar-item">
+                Cadastrar
+            </a>
+            <% } %>
+        </div>
+
+        <div class="navbar-end">
+            <% if(user) { %>
+            <div class="navbar-item">
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        Olá, <%= user.name %>!
+                    </a>
+
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item">
+                            Sair
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+            <% if(!user) { %>
+            <div class="navbar-item">
+                <div class="buttons">
+                  <a class="button is-light"> Log in </a>
+                </div>
+              </div>
+            <% } %>
+        </div>
+    </div>
+    </div>
+</nav>
