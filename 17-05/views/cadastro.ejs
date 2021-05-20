@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Cadastrar</title>
+  </head>
+
+  <body>
+    <nav class="navbar center" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="index.html"> 🔆 </a>
+      </div>
+    </nav>
+    <div class="container is-fluid">
+      <div class="columns d-flex-column-center">
+        <form method="POST" action="/cadastrar" class="column is-4 is-offset-4">
+          <h1 class="title center">Cadastro</h1>
+          <div class="field">
+            <label class="label" for="name">Nome:</label>
+            <div class="control">
+              <input
+                class="input"
+                id="name"
+                type="text"
+                name="nome"
+                value="<%= content.nome ? content.nome : '' %>"
+                placeholder="Digite seu nome"
+              />
+            </div>
+          </div>
+          <div class="field">
+            <label class="label" for="email">Email:</label>
+            <div class="control">
+              <input
+                class="input"
+                id="email"
+                type="text"
+                name="email"
+                value="<%= content.email ? content.email : '' %>"
+                placeholder="Digite seu email"
+              />
+            </div>
+          </div>
+          <div class="field">
+            <label class="label" for="password">Senha:</label>
+            <div class="control">
+              <input
+                class="input"
+                id="password"
+                type="password"
+                name="password"
+                placeholder="Digite sua senha"
+              />
+            </div>
+            <%= error.senha ? error.senha : '' %>
+          </div>
+          <div class="field">
+            <label class="label" for="confirm-password">Confirmar senha:</label>
+            <div class="control">
+              <input
+                class="input"
+                id="confirm-password"
+                type="password"
+                name="confirm_password"
+                placeholder="Confirme sua senha"
+              />
+            </div>
+          </div>
+          <div class="field is-grouped is-grouped-centered">
+            <div class="control">
+              <button class="button is-primary">Criar conta</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
