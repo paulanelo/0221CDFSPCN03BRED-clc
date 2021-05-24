@@ -2,9 +2,9 @@
 <html lang="en">
   <%- include('partials/head.ejs') %>
 
-  <body class="container is-fullhd">
+  <body>
     <%- include('partials/header.ejs', { user: user }) %>
-    <main>
+    <main class="container is-fullhd mt-5 mt-9">
       <div class="columns">
         <% for(let i = 0; i < doces.length; i++) { %> <%-
         include('partials/card.ejs', { value: doces[i] }) %> <% } %>

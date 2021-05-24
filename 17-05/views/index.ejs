@@ -11,7 +11,7 @@
     />
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
-  <body class="container is-fullhd">
+  <body class="">
     <%- include('partials/header.ejs', { user: user }) %>
     <!-- <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
@@ -38,7 +38,7 @@
         <div class="navbar-end"></div>
       </div>
     </nav> -->
-    <main>
+    <main class="container is-fullhd mt-5">
       <section class="hero is-medium is-link">
         <div class="hero-body">
           <p class="title">Cake Ipsum</p>
@@ -47,7 +47,7 @@
           </p>
         </div>
       </section>
-      <%- include('partials/card.ejs', { item: { title:"Paula", content: "Olá" }
+      <%- include('partials/card.ejs', { value: { title:"Paula", content: "Olá" }
       }) %>
       <div class="column">
         <div class="card">
