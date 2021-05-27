@@ -1,51 +1,61 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
-    <link rel="stylesheet" href="/stylesheets/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>Login</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <nav class="navbar center" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="index.html">
-                🔆
-            </a>
-        </div>
+      <div class="navbar-brand">
+        <a class="navbar-item" href="index.html"> 🔆 </a>
+      </div>
     </nav>
     <div class="container is-fluid">
-        <div class="columns d-flex-column-center">
-            <form class="column is-4 is-offset-4">
-                <h1 class="title center">Login</h1>
-                <div class="field">
-                    <label class="label" for="email">Email:</label>
-                    <div class="control">
-                        <input class="input" id="email" type="text" placeholder="Digite seu email">
-                    </div>
-                </div>
-                <div class="field">
-                    <label class="label" for="password">Senha:</label>
-                    <div class="control">
-                        <input class="input" id="password" type="password" placeholder="Digite sua senha">
-                    </div>
-                </div>
-                <div class="field is-grouped is-grouped-centered flex-wrap">
-                    <div class="control ">
-                        <button class="button is-primary">Entrar</button>
-                    </div>
-                    <div class="control mt-3">
-                        <a href="/criar-conta.html">Novo aqui? Crie uma conta</a>
-                    </div>
-                </div>
-            </form>
-        </div>
+      <div class="columns d-flex-column-center">
+        <form method="POST" action="/login" class="column is-4 is-offset-4">
+          <h1 class="title center">Login</h1>
+          <div class="field">
+            <label class="label" for="email">Email:</label>
+            <div class="control">
+              <input
+                class="input"
+                id="email"
+                name="email"
+                type="text"
+                placeholder="Digite seu email"
+              />
+            </div>
+          </div>
+          <div class="field">
+            <label class="label" for="password">Senha:</label>
+            <div class="control">
+              <input
+                class="input"
+                id="password"
+                name="password"
+                type="password"
+                placeholder="Digite sua senha"
+              />
+            </div>
+          </div>
+          <div class="field is-grouped is-grouped-centered flex-wrap">
+            <div class="control">
+              <button class="button is-primary">Entrar</button>
+            </div>
+            <div class="control mt-3">
+              <a href="/criar-conta.html">Novo aqui? Crie uma conta</a>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>

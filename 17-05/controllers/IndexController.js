@@ -4,17 +4,17 @@ const path = require('path');
 
 const candies = require('../jsons/candies.json');
 const users = require('../jsons/users.json');
-console.log(`O array é um array? ${Array.isArray(users) ? 'Sim' : 'Não'}`);
-const { createHash } = require('../helpers/hash');
+// console.log(`O array é um array? ${Array.isArray(users) ? 'Sim' : 'Não'}`);
+const { createHash, compareHash } = require('../helpers/hash');
+const { findUserByEmail, find } = require('../helpers/queries');
 
 const CAMINHO = path.join(__dirname, '..', 'jsons', 'users.json');
 
 module.exports.showHome = function (req, res) {
+  console.log(req.session);
   res.render('home', {
     doces: candies,
-    user: {
-      name: 'Maria',
-    },
+    user: req.session.usuario,
   });
 };
 
@@ -35,9 +35,7 @@ module.exports.cadastrar = function (req, res) {
   // const password = req.body.password;
   // const confirm_password = req.body.confirm_password;
 
-  const foundUser = users.find((user) => {
-    return user.email === email;
-  });
+  const foundUser = findUserByEmail(email, users);
 
   if (foundUser) {
     res.render('cadastro', {
@@ -68,6 +66,28 @@ module.exports.cadastrar = function (req, res) {
   users.push(usuario);
 
   fs.writeFileSync(CAMINHO, JSON.stringify(users));
+
+  res.redirect('/home');
+};
+
+module.exports.showLogin = function (req, res) {
+  res.render('login');
+};
+
+module.exports.login = function (req, res) {
+  const { email, password } = req.body;
+
+  const foundUser = find(email, users, 'email');
+
+  if (!foundUser) {
+    res.render('login');
+  }
+
+  if (!compareHash(password, foundUser.password)) {
+    res.render('login');
+  }
+
+  req.session.usuario = foundUser;
 
   res.redirect('/home');
 };
