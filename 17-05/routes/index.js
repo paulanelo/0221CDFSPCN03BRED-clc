@@ -1,4 +1,5 @@
 var express = require('express');
+const { check } = require('express-validator');
 const app = require('../app');
 var router = express.Router();
 
@@ -24,7 +25,18 @@ router.get('/new', showNew);
 
 router.get('/cadastro', showCadastro);
 
-router.post('/cadastro', cadastrar);
+router.post(
+  '/cadastro',
+  [
+    check('email')
+      .isEmpty()
+      .isEmail()
+      .isLength({ max: 300 })
+      .withMessage('O email inserido é inválidos')
+      .bail(),
+  ],
+  cadastrar
+);
 
 router.get('/login', showLogin);
 

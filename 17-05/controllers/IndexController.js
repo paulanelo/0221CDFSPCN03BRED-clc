@@ -1,6 +1,7 @@
 const { v4: uuidV4 } = require('uuid');
 const fs = require('fs');
 const path = require('path');
+const { validationResult } = require('express-validator');
 
 const candies = require('../jsons/candies.json');
 const users = require('../jsons/users.json');
@@ -35,7 +36,14 @@ module.exports.cadastrar = function (req, res) {
   // const password = req.body.password;
   // const confirm_password = req.body.confirm_password;
 
+  const errors = validationResult(req);
+  console.log(errors);
+  if (!errors.isEmpty()) {
+    console.log('temos um erro');
+  }
+
   const foundUser = findUserByEmail(email, users);
+  console.log(email);
 
   if (foundUser) {
     res.render('cadastro', {
@@ -44,6 +52,7 @@ module.exports.cadastrar = function (req, res) {
       },
       content: req.body,
     });
+    return;
   }
 
   if (password !== confirm_password) {
@@ -53,6 +62,7 @@ module.exports.cadastrar = function (req, res) {
       },
       content: req.body,
     });
+    return;
   }
 
   const usuario = {
@@ -67,7 +77,7 @@ module.exports.cadastrar = function (req, res) {
 
   fs.writeFileSync(CAMINHO, JSON.stringify(users));
 
-  res.redirect('/home');
+  return res.redirect('/home');
 };
 
 module.exports.showLogin = function (req, res) {
